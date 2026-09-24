@@ -1,0 +1,9 @@
+{
+  "name": "page",
+  "max_depth": 2,
+  "escape_invariant": true,
+  "template": "<h1>{{ title }}</h1>{% if show %}<ul>{% for item in items %}<li>{{ item }}</li>{% endfor %}</ul>{% endif %}{% include \"footer\" %}{{ missing }}",
+  "context": {"title": "<b>Hi</b>", "show": true, "items": ["a<b", "c&d"]},
+  "partials": {"footer": "<p>{{ title }}</p>"},
+  "bad": ["{% if x %}no end", "{% endfor %}"]
+}
